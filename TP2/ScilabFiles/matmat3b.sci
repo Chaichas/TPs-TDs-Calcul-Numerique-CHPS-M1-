@@ -1,11 +1,8 @@
-A= rand(10, 10);
-B= rand(10, 5);
-
 function[C]=matmat3b(A, B)
 [m p] = size(A) 
 [p n] = size(B) 
+C=zeros(m,n);
 
-tic();
 for i = 1:m
     for j = 1:n
         for k = 1:p
@@ -13,7 +10,5 @@ for i = 1:m
         end
     end
 end
-toc();
-endfunction
 
-c= exec ("matmat3b(A, B)");
+endfunction
