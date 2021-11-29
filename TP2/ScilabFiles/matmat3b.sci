@@ -1,3 +1,4 @@
+//Produit Matrice-Matrice "ijk" avec 3 boucles
 function[C]=matmat3b(A, B)
 [m p] = size(A) 
 [p n] = size(B) 
@@ -12,3 +13,4 @@ for i = 1:m
 end
 
 endfunction
+funcprot(0)

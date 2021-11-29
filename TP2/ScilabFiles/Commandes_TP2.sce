@@ -1,4 +1,5 @@
 //Commandes du TP2
+
 //TP6
 x= [2, 4, 6, 8] //vecteur x a 1 ligne et 4 colonnes
 y= [7; 1; 8; 2] //vecteur y a 4 lignes et 1 colonnes

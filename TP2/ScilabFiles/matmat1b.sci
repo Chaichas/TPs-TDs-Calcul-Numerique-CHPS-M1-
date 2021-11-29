@@ -4,9 +4,9 @@ function[C]=matmat1b(A, B)
 [p n] = size(B) 
 C=zeros(m,n);
 
-tic();
 for i = 1:m
             C(i,:)=A(i,:)*B+C(i,:);
 end
-toc();
+
 endfunction
+funcprot(0)
