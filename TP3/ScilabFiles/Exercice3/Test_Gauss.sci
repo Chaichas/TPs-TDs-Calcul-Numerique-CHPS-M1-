@@ -1,7 +1,7 @@
 //Test de l'algorithme de resolution par elimination de Gauss sans pivotage
 
-A=rand(100,100); //Matrice A
-xg=rand(100,1); //vecteur xg 3*1
+A=rand(50,50); //Matrice A
+xg=rand(50,1); //vecteur xg 3*1
 b=A*xg;
 
 //Temps de calcul

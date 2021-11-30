@@ -14,10 +14,10 @@ for k = 1:n-1
         end
     end
 end
-L = tril(A, -1)+eye(n,n);
-U = triu(A);
+
+L = tril(A, -1)+eye(n,n); //matrice L triangulaire inferieure avec des 1 sur la diagolanle
+
+U = triu(A); //matrice u triangulaire superieur
 
 endfunction
 funcprot(0)
-
-//Commande: [L,U]=mylu3b(A)

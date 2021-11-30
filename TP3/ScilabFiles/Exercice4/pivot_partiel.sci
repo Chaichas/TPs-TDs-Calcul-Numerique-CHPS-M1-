@@ -1,4 +1,5 @@
 //Algorithm 14 Pivot Partiel
+
 function [L,U,P]=mylu(A)
 [n n] = size (A)
 
@@ -11,5 +12,10 @@ if (ind ~= k) then
     row(1, ind) = row(1, k);
     row(1:k)=q;
 end
+
+L = tril(A, -1)+eye(n,n); //matrice L triangulaire inferieure avec des 1 sur la diagolanle
+
+U = triu(A); //matrice u triangulaire superieur
+
 endfunction
 funcprot(0)
