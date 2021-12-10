@@ -5,6 +5,7 @@
 /******************************************/
 #include "lib_poisson1D.h"
 int main(int argc,char *argv[])
+//recoupier des tabls coute plus cher que passer l adresse du tab
 /* ** argc: Number of arguments */
 /* ** argv: Values of arguments */
 {
@@ -40,10 +41,10 @@ int main(int argc,char *argv[])
   write_vec(EX_SOL, &la, "EX_SOL.dat");
   write_vec(X, &la, "X_grid.dat");
 
-  kv=1;
+  kv=1; //Kv= 1: indice dans la bibliotheque Laplaack lie a dgbtrs dgbt
   ku=1;
   kl=1;
-  lab=kv+kl+ku+1;
+  lab=kv+kl+ku+1; 
 
   AB = (double *) malloc(sizeof(double)*lab*la);
 

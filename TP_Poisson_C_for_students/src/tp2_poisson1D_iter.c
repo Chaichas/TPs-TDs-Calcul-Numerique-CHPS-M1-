@@ -51,9 +51,9 @@ int main(int argc,char *argv[])
   kv=0;
   ku=1;
   kl=1;
-  lab=kv+kl+ku+1;
+  lab=kv+kl+ku+1; //lignes of AB
   
-  AB = (double *) malloc(sizeof(double)*lab*la);
+  AB = (double *) malloc(sizeof(double)*lab*la); //size of AB
   set_GB_operator_colMajor_poisson1D(AB, &lab, &la, &kv);
   
   /* uncomment the following to check matrix A */

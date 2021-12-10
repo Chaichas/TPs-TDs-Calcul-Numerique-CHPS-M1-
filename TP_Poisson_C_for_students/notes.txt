@@ -1,0 +1,23 @@
+**lib_poisson1D.c
+librairie numerique pour la resolution de l equation de chaleur (probleme de poisson 1D)
+
+tp_env.c 
+Tester l'environment de compilation
+
+tp2_poisson1D_direct.c
+fonction main pour la resolution du probleme de poisson 1D (methode directe)
+
+tp2_poisson1D_iter.c   
+fonction main pour la resolution du probleme de poisson 1D (methode itterative)
+
+blas est une dependance de laplack
+
+
+
+
+
+
+ii, jj --> eviter les confusions avec les notations complexes
+raisons pour utiliser les pointeurs??
+sudo apt-get install liblapacke-dev
+
