@@ -1,9 +1,9 @@
 /*Methode de Factorisation LDL'; A=L*D*L'
 Forme Compacte de l;algorithme, ie aij est ecrasee par lij si i>j et di si i=j*/
 
-function [L,D]=LDLFactorisation_Compacte(A)
+function [L,d]=LDLFactorisation_Compacte(A)
 
-n = size(A,1); //taille de la matrice A: Matrice carre de dim n*m
+n = size(A,1); //taille de la matrice A: Matrice carre de dim n*n
 
 A(1,1) = A(1,1);
 A(2:n,1) = A(2:n,1)/A(1,1);
@@ -19,8 +19,9 @@ for j=2:n
 
 end
 
-D = diag(A); //Matrice diagonale D
-L = tril(A- diag(D),-1)+eye(n,n);
+//obtention de d et de L
+d = diag(A); //coeff d de la matrice diagonale D
+L = tril(A- diag(d),-1)+eye(n,n); //Matrice L triangulaire inferieure
 
 endfunction
 funcprot(0)
