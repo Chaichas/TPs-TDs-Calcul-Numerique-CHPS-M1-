@@ -34,9 +34,9 @@ disp(err_LDL_Compacte);
 subplot(1,2,1)
 
 n=[3,5,10,15,20,40,60,80,100,1000]; //taille n de la matrice A
-Err_Standard = [0.000126,2.220D-16,1.227D-15 , 2.381D-15 , 3.626D-15, 1.184D-14, 5.861D-14, 8.540D-14 , 8.869D-14 , 1.411D-11]; //erreur de la forme standard
+Err_Standard = [5.55D-17,2.220D-16,1.227D-15 , 2.381D-15 , 3.626D-15, 1.184D-14, 5.861D-14, 8.540D-14 , 8.869D-14 , 1.411D-11]; //erreur de la forme standard
 
-Err_Compacte = [0.000093,2.220D-16,1.227D-15 , 2.381D-15 , 3.626D-15, 1.184D-14, 5.861D-14, 8.540D-14 , 8.869D-14 , 1.411D-11]; //erreur de la forme compacte
+Err_Compacte = [5.55D-17,2.220D-16,1.227D-15 , 2.381D-15 , 3.626D-15, 1.184D-14, 5.861D-14, 8.540D-14 , 8.869D-14 , 1.411D-11]; //erreur de la forme compacte
 
 plot("nlnlnl",n,Err_Standard,'m*-.',n,Err_Compacte); 
 

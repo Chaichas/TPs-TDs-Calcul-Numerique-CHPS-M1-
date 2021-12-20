@@ -58,13 +58,15 @@ int main(int argc,char *argv[])
   if (row == 1){ // LAPACK_ROW_MAJOR
     set_GB_operator_rowMajor_poisson1D(AB, &lab, &la);
     //write_GB_operator_rowMajor_poisson1D(AB, &lab, &la, "AB_row.dat");
+    LAPACK_dgbsv(AB, &lab, &la, "AB_row.dat");
     
     info = LAPACKE_dgbsv(LAPACK_ROW_MAJOR,la, kl, ku, NRHS, AB, la, ipiv, RHS, NRHS);
   
-  } 
+  }
   else { // LAPACK_COL_MAJOR
     set_GB_operator_colMajor_poisson1D(AB, &lab, &la, &kv);
     //write_GB_operator_colMajor_poisson1D(AB, &lab, &la, "AB_col.dat");
+     LAPACK_dgbsv(AB, &lab, &la, "AB_col.dat");
 
     info = LAPACKE_dgbsv(LAPACK_COL_MAJOR,la, kl, ku, NRHS, AB, lab, ipiv, RHS, la);
   }    
