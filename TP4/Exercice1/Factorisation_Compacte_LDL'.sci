@@ -14,7 +14,7 @@ for j=2:n
         v(i)= A(j,i)*A(i,i); // Calcul du vecteur v
     end
 
-    A(j,j)= A(j,j)-L(j,1:j-1)*v(1:j-1); //Calcul des elements du vecteur D
+    A(j,j)= A(j,j)-A(j,1:j-1)*v(1:j-1); //Calcul des elements du vecteur D
     A(j+1:n,j)=(A(j+1:n,j)-A(j+1:n, 1:j-1)*v(1:j-1) )/A(j,j); //Calcul des elements de L
 
 end

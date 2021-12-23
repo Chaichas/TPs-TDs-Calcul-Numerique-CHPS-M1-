@@ -7,20 +7,18 @@
 
 //Stockage priorite ligne
 void set_GB_operator_rowMajor_poisson1D(double* AB, int *lab, int *la){
-
   //TODO
-  int ii, jj, kk;
-  for (ii=0;ii<(*la);ii++){
-    kk = ii*(*lab);
-
-    AB[kk]=-1.0;
-    AB[kk+1]=2.0;
-    AB[kk+2]=-1.0;
+  int ii;
+  for (ii=0;ii<(*la);ii++){    
+    AB[ii]=0.0;
+    AB[ii + (*la)]=-1.0;
+    AB[ii + (*la)*2]=2.0;
+    AB[ii + (*la)*3]=-1.0;
   }
   
+  AB[(*la)]=0.0;
   AB[(*lab)*(*la)-1]=0.0;
 }
-
 //Definition de la matrice dans la memoire en colmajor
 void set_GB_operator_colMajor_poisson1D(double* AB, int *lab, int *la, int *kv){
   int ii, jj, kk;

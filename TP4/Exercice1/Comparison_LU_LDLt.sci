@@ -8,16 +8,17 @@ disp(cond(A))
 //Comparison ==> Factorisation LU (Algo standard)
 tic();
 [L_LU,U_LU] = mylu3b(A); //Algo de factorisation LU
-toc();  
+disp(toc());  
 
 err_LU = norm(A-L_LU*U_LU); //Calcul de l erreur commise de la factorisation LU
 disp(err_LU);
 
 
 tic();
-[L,d] = LDLFactorisation(A); //Factorisation LDL' ==> d(vecteur des elements diag de D) et L(triang inf)
+//[L,d] = LDLFactorisation(A); //Factorisation LDL' ==> d(vecteur des elements diag de D) et L(triang inf)
+[L,d]=LDLFactorisation_Compacte(A);
 //
-toc(); //Activation du temps
+disp(toc()); //Activation du temps
 
 err_LDL = norm(A-L*diag(d)*L'); //Calcul de l erreur commise de la factorisation LDL'
 disp(err_LDL);
