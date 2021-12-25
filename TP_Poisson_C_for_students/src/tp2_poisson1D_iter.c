@@ -8,11 +8,12 @@ int main(int argc,char *argv[])
 /* ** argc: Number of arguments */
 /* ** argv: Values of arguments */
 {
+  //variables definition
   int ierr;
   int jj;
   int nbpoints, la;
   int ku, kl, lab, kv;
-  int *ipiv;
+  int *ipiv; //array of pivoting
   int info;
   int NRHS;
   double T0, T1;
@@ -79,6 +80,7 @@ int main(int argc,char *argv[])
   /* Write solution */
   write_vec(SOL, &la, "SOL.dat");
 
+  //unallocate memory
   free(RHS);
   free(SOL);
   free(EX_SOL);

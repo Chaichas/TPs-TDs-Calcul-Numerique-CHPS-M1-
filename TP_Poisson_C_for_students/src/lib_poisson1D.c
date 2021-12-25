@@ -7,7 +7,7 @@
 
 //Stockage priorite ligne
 void set_GB_operator_rowMajor_poisson1D(double* AB, int *lab, int *la){
-  //TODO
+  //TODO, Exercice3.5
   int ii;
   for (ii=0;ii<(*la);ii++){    
     AB[ii]=0.0;
@@ -19,6 +19,9 @@ void set_GB_operator_rowMajor_poisson1D(double* AB, int *lab, int *la){
   AB[(*la)]=0.0;
   AB[(*lab)*(*la)-1]=0.0;
 }
+
+
+//Stockage priorite colonne
 //Definition de la matrice dans la memoire en colmajor
 void set_GB_operator_colMajor_poisson1D(double* AB, int *lab, int *la, int *kv){
   int ii, jj, kk;
@@ -38,6 +41,7 @@ void set_GB_operator_colMajor_poisson1D(double* AB, int *lab, int *la, int *kv){
   
   AB[(*lab)*(*la)-1]=0.0;
 }
+
 
 //matrice identite en col majeur
 void set_GB_operator_colMajor_poisson1D_Id(double* AB, int *lab, int *la, int *kv){
@@ -66,6 +70,7 @@ void set_dense_RHS_DBC_1D(double* RHS, int* la, double* BC0, double* BC1){
   }
 }  
 
+
 //Discretisation
 void set_analytical_solution_DBC_1D(double* EX_SOL, double* X, int* la, double* BC0, double* BC1){
   int jj;
@@ -76,20 +81,24 @@ void set_analytical_solution_DBC_1D(double* EX_SOL, double* X, int* la, double* 
   }
 }  
 
+
+//Grid points definition
 void set_grid_points_1D(double* x, int* la){
   int jj;
   double h;
-  h=1.0/(1.0*((*la)+1));
+  h=1.0/(1.0*((*la)+1)); //le pas: h = 1/(la+1)
   for (jj=0;jj<(*la);jj++){
     x[jj]=(jj+1)*h;
   }
 }
+
 
 //Ecrire les pts output dans un fichier (pour les lignes)
 void write_GB_operator_rowMajor_poisson1D(double* AB, int* lab, int* la, char* filename){
   FILE * file;
   int ii,jj;
   file = fopen(filename, "w");
+  
   //Numbering from 1 to la
   if (file != NULL){
     for (ii=0;ii<(*lab);ii++){
@@ -105,16 +114,36 @@ void write_GB_operator_rowMajor_poisson1D(double* AB, int* lab, int* la, char* f
   }
 }
 
-//Ecrire les output points pour les colonnes ???
+
+//Ecrire les output points pour les colonnes 
 void write_GB_operator_colMajor_poisson1D(double* AB, int* lab, int* la, char* filename){
   //TODO
+  FILE * file;
+  int ii,jj;
+  file = fopen(filename, "w");
+  
+  //Numbering from 1 to la
+  if (file != NULL){
+    for (ii=0;ii<(*la);ii++){
+      for (jj=0;jj<(*lab);jj++){
+        fprintf(file,"%lf\t",AB[ii*(*lab)+jj]);
+      }
+      fprintf(file,"\n");
+    }
+    fclose(file);
+  }
+  else{
+    perror(filename);
+  }
 }
 
-//Ecrire le vecteur
+
+//Ecrire les vals du vecteur vec dans un fichier filename
 void write_vec(double* vec, int* la, char* filename){
   int jj;
   FILE * file;
   file = fopen(filename, "w");
+  
   // Numbering from 1 to la
   if (file != NULL){
     for (jj=0;jj<(*la);jj++){
@@ -127,11 +156,13 @@ void write_vec(double* vec, int* la, char* filename){
   } 
 }  
 
-//ecrire le vecteur xy
+
+//ecrire le vecteur xy dans un fichier filename
 void write_xy(double* vec, double* x, int* la, char* filename){
   int jj;
   FILE * file;
   file = fopen(filename, "w");
+  
   // Numbering from 1 to la
   if (file != NULL){
     for (jj=0;jj<(*la);jj++){
@@ -144,7 +175,8 @@ void write_xy(double* vec, double* x, int* la, char* filename){
   } 
 }  
 
-//Valeurs propres
+
+//Valeurs propres: eigenvalues
 void eig_poisson1D(double* eigval, int *la){
   int ii;
   double scal;
@@ -155,6 +187,7 @@ void eig_poisson1D(double* eigval, int *la){
   } 
 }
 
+
 //Max du val propre
 double eigmax_poisson1D(int *la){
   double eigmax;
@@ -163,6 +196,8 @@ double eigmax_poisson1D(int *la){
   return eigmax;
 }
 
+
+//Min du valeur propre de la matrice poisson 1D
 double eigmin_poisson1D(int *la){
   double eigmin;
   eigmin=sin(M_PI_2*(1.0/(*la+1)));
@@ -170,10 +205,14 @@ double eigmin_poisson1D(int *la){
   return eigmin;
 }
 
+
+//Richardson optimale
 double richardson_alpha_opt(int *la){
   //TODO
 }
 
+
+//Ridcharson alpha
 void richardson_alpha(double *AB, double *RHS, double *X, double *alpha_rich, int *lab, int *la,int *ku, int*kl, double *tol, int *maxit){
   //TODO
 }

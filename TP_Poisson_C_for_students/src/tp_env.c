@@ -27,7 +27,7 @@ int main(int argc,char *argv[])
   }
 
   printf("\nTest DCOPY y <- x \n");
-  cblas_dcopy(5,x,1,y,1);
+  cblas_dcopy(5,x,1,y,1);  //dgbsv: overwrites x ==> we create a copy of x
   for (ii=0;ii<5;ii++){
     printf("y[%d] = %lf\n",ii,y[ii]);
   }
