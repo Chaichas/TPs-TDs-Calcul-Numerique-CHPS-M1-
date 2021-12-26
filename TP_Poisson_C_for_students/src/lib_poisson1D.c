@@ -71,7 +71,7 @@ void set_dense_RHS_DBC_1D(double* RHS, int* la, double* BC0, double* BC1){
 }  
 
 
-//Discretisation
+//Solution analytique: T(x) = T0 + X(T1-T0)
 void set_analytical_solution_DBC_1D(double* EX_SOL, double* X, int* la, double* BC0, double* BC1){
   int jj;
   double h, DELTA_T;

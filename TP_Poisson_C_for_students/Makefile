@@ -46,6 +46,8 @@ tp2poisson1D_iter: bin/tp2poisson1D_iter
 
 tp2poisson1D_direct: bin/tp2poisson1D_direct
 
+
+
 tp_env.o: $(TPDIRSRC)/tp_env.c
 	$(CC) $(OPTC) -c $(INCL) $(TPDIRSRC)/tp_env.c 
 
@@ -57,7 +59,9 @@ tp2_poisson1D_iter.o: $(TPDIRSRC)/tp2_poisson1D_iter.c
 
 tp2_poisson1D_direct.o: $(TPDIRSRC)/tp2_poisson1D_direct.c
 	$(CC) $(OPTC) -c $(INCL) $(TPDIRSRC)/tp2_poisson1D_direct.c  
-
+	
+	
+	
 bin/tp_testenv: $(OBJENV) 
 	$(CC) -o bin/tp_testenv $(OPTC) $(OBJENV) $(LIBS)
 
@@ -66,7 +70,8 @@ bin/tp2poisson1D_iter: $(OBJTP2ITER)
 
 bin/tp2poisson1D_direct: $(OBJTP2DIRECT)
 	$(CC) -o bin/tp2poisson1D_direct $(OPTC) $(OBJTP2DIRECT) $(LIBS)
-
+	
+	
 run_testenv:
 	bin/tp_testenv
 
@@ -75,6 +80,10 @@ run_tp2poisson1D_iter:
 
 run_tp2poisson1D_direct:
 	bin/tp2poisson1D_direct
+	
 
 clean:
 	rm *.o bin/*
+	
+clean_dat:
+	rm -f *.dat
